@@ -1,0 +1,36 @@
+@charset "utf-8";
+/* CSS Document */
+
+#container{
+	float: left;
+	display: inline-block;
+	text-align: center;
+	width: 80%;
+	height: auto;
+	background-color: silver;
+	margin-left: 10%;
+}
+
+#mainTitle{
+	float: left;
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	font-weight: bold;
+	font-size: 36px;
+	margin: auto;
+	padding: auto;	
+}
+
+#timerDiv{
+	clear: both;
+	float: left;
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	background-color: aqua;
+	font-size: 24px;
+	font-weight: bolder;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
