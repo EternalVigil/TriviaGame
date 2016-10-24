@@ -4,13 +4,14 @@ var QandA = {
 	question1Answer: 3,
 	
 };
-
+var maxTime = 15000;
 function giveAnswer(){
 	
 }
 
 function giveQuestion(){
-	
+	setTimeout(giveAnswer, maxTime);
+	$("#timeLeft").html("00:" + maxTime);
 }
 
 giveQuestion();
