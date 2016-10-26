@@ -19,7 +19,7 @@
 	font-weight: bold;
 	font-size: 36px;
 	margin: auto;
-	padding: auto;	
+	height: 50px;
 }
 
 #timerDiv{
@@ -33,4 +33,17 @@
 	font-weight: bolder;
 	padding-top: 10px;
 	padding-bottom: 10px;
+}
+#questionDiv{
+	width: 100%;
+	font-size: 24px;
+	vertical-align: middle;
+	padding-top: 50px;
+}
+button{
+	width:100%;
+	height: 150px;
+	font-size: 32px;
+	font-weight: bold;
+	
 }
