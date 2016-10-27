@@ -16,7 +16,7 @@ var questionBank = [{
 }, {
 	riddle: "What is the airspeed velocity of an unladen swallow?",
 	choices: ["at least 15mph", "African or European?", "11 meters per second", "I don't know"],
-	answer: "African or European"
+	answer: "African or European?"
 }];
 
 console.log();
@@ -74,9 +74,13 @@ $(":button").on("click", function () {
 		console.log("Congrats on the right answer");
 		answerRight += 1;
 		$("#scoreboard").html(answerRight + "/" + questionBank.length);
+		currentQuestion += 1;
+		giveQuestion();
 	} else {
 		console.log("You dun goofed dum-dum.");
 		answerWrong++;
+		currentQuestion += 1;
+
 	}
 });
 
