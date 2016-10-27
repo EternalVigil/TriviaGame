@@ -41,24 +41,19 @@ function giveQuestion() {
 		var selector = "#choice" + (i + 1).toString();
 		$(selector).html(questionBank[currentQuestion].choices[i]);
 	}
-
-	//timer function (not working)
-	for (var j = timeLeft; j <= 0; j--) {
-		timeLeft--;
-		var covertTime = timeConvert(timeLeft);
-		$("#timeLeft").html(covertTime);
-	}
-
+}
+function countDown(){
+	timeLeft--;
+	var covertTimeLeft = timeConvert(timeLeft);
+	$("#timeLeft").html(covertTimeLeft);
 }
 
 function timeConvert(time) {
-	time--;
 	var seconds = Math.floor(time / 1000);
-	if (time <= 0) {
+	if (seconds <= 0) {
 		giveAnswer();
 	} else {
-		return seconds;
-
+		return "00:" + seconds;
 	}
 }
 
