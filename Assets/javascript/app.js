@@ -25,6 +25,7 @@ var timeLeft = timeLimit;
 var currentQuestion = 0;
 var answerRight = 0;
 var answerWrong = 0;
+$("#scoreboard").html(answerRight + "/" + questionBank.length);
 
 function giveAnswer() {
 	alert("Sorry, you ran out of time.<br\>The answer was " + questionBank[currentQuestion].answer);
@@ -42,7 +43,8 @@ function giveQuestion() {
 		$(selector).html(questionBank[currentQuestion].choices[i]);
 	}
 }
-function countDown(){
+
+function countDown() {
 	timeLeft--;
 	var covertTimeLeft = timeConvert(timeLeft);
 	$("#timeLeft").html(covertTimeLeft);
@@ -61,6 +63,8 @@ function resetTimer() {
 	timeLeft = timeLimit;
 }
 
+//should have a loop starting here...
+
 //sets the game board with question and choices
 giveQuestion();
 
@@ -68,7 +72,12 @@ giveQuestion();
 $(":button").on("click", function () {
 	if ($(this).text() === questionBank[currentQuestion].answer) {
 		console.log("Congrats on the right answer");
+		answerRight += 1;
+		$("#scoreboard").html(answerRight + "/" + questionBank.length);
 	} else {
 		console.log("You dun goofed dum-dum.");
+		answerWrong++;
 	}
 });
+
+//...and end here
