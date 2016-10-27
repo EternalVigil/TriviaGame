@@ -32,44 +32,48 @@ function giveAnswer() {
 }
 
 function giveQuestion() {
-	resetTimer();
-	console.log(questionBank[currentQuestion].riddle);
+
+	//provides the question
 	$("#questionDiv").html(questionBank[currentQuestion].riddle);
 
+	//provides the choices for the buttons
 	for (var i = 0; i < 4; i++) {
 		var selector = "#choice" + (i + 1).toString();
-		console.log(selector);
 		$(selector).html(questionBank[currentQuestion].choices[i]);
 	}
 
+	//timer function (not working)
 	for (var j = timeLeft; j <= 0; j--) {
 		timeLeft--;
 		var covertTime = timeConvert(timeLeft);
 		$("#timeLeft").html(covertTime);
 	}
-		$(":button").on("click", function(){
-			if ($(this).text() === questionBank[currentQuestion].answer){
-				console.log("Congrats on the right answer");
-			}
-			else{
-				console.log("You dun goofed dum-dum.");
-			}
-		});
+
 }
 
 function timeConvert(time) {
-	var minutes = Math.floor(time / 60);
-	var seconds = time - (minutes * 60);
-	if (seconds < 10) {
-		seconds = "0" + seconds;
-	} else if (minutes === 0) {
-		minutes = "0" + minutes;
+	time--;
+	var seconds = Math.floor(time / 1000);
+	if (time <= 0) {
+		giveAnswer();
+	} else {
+		return seconds;
+
 	}
-	return minutes + ":" + seconds;
 }
 
 function resetTimer() {
 	timeLeft = timeLimit;
 }
 
+//sets the game board with question and choices
 giveQuestion();
+
+//governs button click functionality
+$(":button").on("click", function () {
+	if ($(this).text() === questionBank[currentQuestion].answer) {
+		console.log("Congrats on the right answer");
+	} else {
+		console.log("You dun goofed dum-dum.");
+	}
+});
